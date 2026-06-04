@@ -5,6 +5,7 @@ This repository contains all Kubernetes manifests, Istio service mesh configurat
 ## Application Repository
 
 The main application code lives here:
+
 👉 https://github.com/Abubakar-Meigag/hotel-management-system
 
 ## About the Application
