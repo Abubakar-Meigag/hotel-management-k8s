@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: room-service
-          image: hotel-room-service:latest
-          imagePullPolicy: Never
+          image: abubakarmeigag/hotel-room-service:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8081
           env:

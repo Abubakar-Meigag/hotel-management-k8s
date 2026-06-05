@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: notification-service
-          image: hotel-notification-service:latest
-          imagePullPolicy: Never
+          image: abubakarmeigag/hotel-notification-service:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8086
           env:

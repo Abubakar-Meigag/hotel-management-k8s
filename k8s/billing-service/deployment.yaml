@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: billing-service
-          image: hotel-billing-service:latest
-          imagePullPolicy: Never
+          image: abubakarmeigag/hotel-billing-service:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8085
           env:

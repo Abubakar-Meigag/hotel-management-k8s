@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: booking-service
-          image: hotel-booking-service:latest
-          imagePullPolicy: Never
+          image: abubakarmeigag/hotel-booking-service:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8082
           env:

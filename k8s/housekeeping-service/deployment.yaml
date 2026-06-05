@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: housekeeping-service
-          image: hotel-housekeeping-service:latest
-          imagePullPolicy: Never
+          image: abubakarmeigag/hotel-housekeeping-service:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8084
           env:

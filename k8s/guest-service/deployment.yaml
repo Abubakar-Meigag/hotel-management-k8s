@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: guest-service
-          image: hotel-guest-service:latest
-          imagePullPolicy: Never
+          image: abubakarmeigag/hotel-guest-service:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8083
           env:
