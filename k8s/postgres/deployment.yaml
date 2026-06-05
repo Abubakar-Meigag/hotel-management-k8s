@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotel-postgres
+  namespace: hotel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hotel-postgres
+  template:
+    metadata:
+      labels:
+        app: hotel-postgres
+    spec:
+      containers:
+        - name: hotel-postgres
+          image: postgres:16
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: hotel-secrets
+                  key: postgres-username
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: hotel-secrets
+                  key: postgres-password
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: hotel-secrets
+                  key: postgres-db

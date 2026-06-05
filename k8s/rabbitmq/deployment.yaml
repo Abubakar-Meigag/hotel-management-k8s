@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotel-rabbitmq
+  namespace: hotel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hotel-rabbitmq
+  template:
+    metadata:
+      labels:
+        app: hotel-rabbitmq
+    spec:
+      containers:
+        - name: hotel-rabbitmq
+          image: rabbitmq:3-management
+          ports:
+            - containerPort: 5672
+            - containerPort: 15672
