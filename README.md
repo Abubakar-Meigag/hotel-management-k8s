@@ -74,3 +74,93 @@ hotel-management-k8s/
 └── argocd/
     └── application.yaml
 ```
+
+## Phase 1 — Kubernetes
+
+**Goal:** Orchestrate the containers using Kubernetes locally with Minikube.
+
+1. Install Minikube and kubectl
+2. Create a `Deployment` manifest for each service
+3. Create a `Service` manifest for each service to expose ports
+4. Create a `ConfigMap` for shared configuration
+5. Create a `Secret` for database credentials
+6. Deploy all services to Minikube and verify they communicate
+7. Set up an Ingress controller to replace the API gateway
+
+---
+
+## Phase 2 — Istio
+
+**Goal:** Add a service mesh for traffic management and security.
+
+1. Install Istio on the Minikube cluster
+2. Enable automatic sidecar injection on the hotel namespace
+3. Create `VirtualService` and `DestinationRule` for each service
+4. Configure mTLS between services
+5. Test traffic routing and load balancing
+6. Visualize the service mesh using Kiali dashboard
+
+---
+
+## Phase 3 — Argo CD
+
+**Goal:** Set up a GitOps deployment pipeline.
+
+1. Install Argo CD on the Kubernetes cluster
+2. Connect Argo CD to the hotel-management-k8s GitHub repository
+3. Create an Argo CD Application manifest
+4. Configure auto-sync so every git push deploys automatically
+5. Test the pipeline by pushing a change and watching it deploy
+
+---
+
+## Phase 4 — Helm
+
+**Goal:** Package Kubernetes manifests into reusable Helm charts.
+
+1. Install Helm locally
+2. Create a Helm chart for the hotel services
+3. Replace individual deployment and service YAML files with templates
+4. Create a values.yaml file for each service
+5. Update Argo CD to deploy via Helm charts instead of raw YAML
+6. Test deploying a change via Helm and Argo CD together
+
+---
+
+## Phase 5 — Monitoring
+
+**Goal:** Monitor all services with Prometheus and Grafana.
+
+1. Deploy Prometheus to the Kubernetes cluster
+2. Configure Spring Boot Actuator endpoints for metrics collection
+3. Deploy Grafana and connect it to Prometheus
+4. Create dashboards for each service showing request rates and errors
+5. Set up alerts for service downtime
+
+---
+
+## Phase 6 — AWS Deployment
+
+**Goal:** Deploy the full system to AWS.
+
+1. Create an EKS cluster on AWS
+2. Push all images to AWS ECR
+3. Update Kubernetes manifests to use ECR image URLs
+4. Configure AWS RDS for PostgreSQL
+5. Configure AWS MQ for RabbitMQ
+6. Deploy all services to EKS
+7. Set up AWS Load Balancer for the API gateway
+
+---
+
+## Phase 7 — GitHub Actions CI/CD
+
+**Goal:** Automate the full deployment pipeline.
+
+1. Create a GitHub Actions workflow in the Java repo
+2. On merge to main: run tests, build JAR, build Docker image, push to ECR
+3. Automatically update image tag in hotel-management-k8s repo
+4. Argo CD picks up the change and deploys automatically
+5. Test the full pipeline end to end
+
+---
