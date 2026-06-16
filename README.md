@@ -10,7 +10,7 @@ The main application code lives here:
 
 ## About the Application
 
-A full microservices-based Hotel Management System built with Java 17+ and Spring Boot. It manages room bookings, guest check-ins/check-outs, housekeeping, billing, and automated notifications.
+A full microservices-based Hotel Management System built with Java 25 and Spring Boot. It manages room bookings, guest check-ins/check-outs, housekeeping, billing, and automated notifications.
 
 ### Services
 
