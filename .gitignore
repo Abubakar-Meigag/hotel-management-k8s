@@ -1,3 +1,4 @@
 k8s/secrets.yaml.idea/
 .idea/
 claude-502/
+istio-1.30.1/
