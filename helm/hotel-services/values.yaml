@@ -1,0 +1,47 @@
+namespace: hotel
+
+postgres:
+  image: postgres:16
+  port: 5432
+
+rabbitmq:
+  image: rabbitmq:3-management
+  port: 5672
+  managementPort: 15672
+
+services:
+  room-service:
+    image: abubakarmeigag/hotel-room-service:latest
+    port: 8081
+    hasDatabase: true
+    hasRabbitMQ: false
+  booking-service:
+    image: abubakarmeigag/hotel-booking-service:latest
+    port: 8082
+    hasDatabase: true
+    hasRabbitMQ: true
+  guest-service:
+    image: abubakarmeigag/hotel-guest-service:latest
+    port: 8083
+    hasDatabase: true
+    hasRabbitMQ: false
+  housekeeping-service:
+    image: abubakarmeigag/hotel-housekeeping-service:latest
+    port: 8084
+    hasDatabase: true
+    hasRabbitMQ: true
+  billing-service:
+    image: abubakarmeigag/hotel-billing-service:latest
+    port: 8085
+    hasDatabase: true
+    hasRabbitMQ: true
+  notification-service:
+    image: abubakarmeigag/hotel-notification-service:latest
+    port: 8086
+    hasDatabase: false
+    hasRabbitMQ: true
+  api-gateway:
+    image: abubakarmeigag/hotel-api-gateway:latest
+    port: 8080
+    hasDatabase: false
+    hasRabbitMQ: false

@@ -89,6 +89,26 @@ hotel-management-k8s/
 
 ---
 
+## Phase 1.5 — Helm
+
+**Goal:** Package and manage Kubernetes manifests using Helm charts.
+
+1. Install Helm on your Mac
+2. Create the Helm chart structure under `helm/hotel-services/`
+3. Create `Chart.yaml` with chart metadata
+4. Create `values.yaml` with all service configurations (ports, images, flags for database and RabbitMQ)
+5. Create `templates/deployment.yaml` using range to loop over all services
+6. Create `templates/service.yaml` using if/else to handle NodePort for api-gateway and ClusterIP for all others
+7. Validate the chart renders correctly with `helm template hotel-services helm/hotel-services/`
+8. Create the `hotel` namespace manually with `kubectl create namespace hotel`
+9. Create the ConfigMap manually with `kubectl create configmap hotel-config`
+10. Create the Secret manually with `kubectl create secret generic hotel-secrets`
+11. Install the chart with `helm install hotel helm/hotel-services/`
+12. If a previous release exists, uninstall first with `helm uninstall hotel` then reinstall
+13. Verify all pods are running with `kubectl get all -n hotel`
+
+---
+
 ## Phase 2 — Istio
 
 **Goal:** Add a service mesh for traffic management and security.
