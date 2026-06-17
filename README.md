@@ -134,19 +134,6 @@ hotel-management-k8s/
 
 ---
 
-## Phase 4 — Helm
-
-**Goal:** Package Kubernetes manifests into reusable Helm charts.
-
-1. Install Helm locally
-2. Create a Helm chart for the hotel services
-3. Replace individual deployment and service YAML files with templates
-4. Create a values.yaml file for each service
-5. Update Argo CD to deploy via Helm charts instead of raw YAML
-6. Test deploying a change via Helm and Argo CD together
-
----
-
 ## Phase 5 — Monitoring
 
 **Goal:** Monitor all services with Prometheus and Grafana.
