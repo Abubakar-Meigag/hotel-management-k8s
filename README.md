@@ -134,7 +134,7 @@ hotel-management-k8s/
 
 ---
 
-## Phase 5 — Monitoring
+## Phase 4 — Monitoring
 
 **Goal:** Monitor all services with Prometheus and Grafana.
 
@@ -146,7 +146,7 @@ hotel-management-k8s/
 
 ---
 
-## Phase 6 — AWS Deployment
+## Phase 5 — AWS Deployment
 
 **Goal:** Deploy the full system to AWS.
 
@@ -160,7 +160,7 @@ hotel-management-k8s/
 
 ---
 
-## Phase 7 — GitHub Actions CI/CD
+## Phase 6 — GitHub Actions CI/CD
 
 **Goal:** Automate the full deployment pipeline.
 
