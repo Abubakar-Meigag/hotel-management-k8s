@@ -11,7 +11,7 @@ rabbitmq:
 
 services:
   room-service:
-    image: abubakarmeigag/hotel-room-service:latest
+    image: abubakarmeigag/hotel-room-service:9941e12
     port: 8081
     hasDatabase: true
     hasRabbitMQ: false
