@@ -32,12 +32,12 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: hotel-secrets
-                  key: postgres-username
+                  key: SPRING_DATASOURCE_USERNAME
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: hotel-secrets
-                  key: postgres-password
+                  key: SPRING_DATASOURCE_PASSWORD
             {{- end }}
             {{- if $service.hasRabbitMQ }}
             - name: SPRING_RABBITMQ_HOST

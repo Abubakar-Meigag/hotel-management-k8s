@@ -1,0 +1,78 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotel-postgres
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hotel-postgres
+  template:
+    metadata:
+      labels:
+        app: hotel-postgres
+    spec:
+      containers:
+        - name: hotel-postgres
+          image: {{ .Values.postgres.image }}
+          ports:
+            - containerPort: {{ .Values.postgres.port }}
+          env:
+            - name: POSTGRES_DB
+              value: hoteldb
+            - name: POSTGRES_USER
+              value: hoteldb
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: hotel-secrets
+                  key: SPRING_DATASOURCE_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hotel-postgres
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    app: hotel-postgres
+  ports:
+    - port: 5432
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotel-rabbitmq
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hotel-rabbitmq
+  template:
+    metadata:
+      labels:
+        app: hotel-rabbitmq
+    spec:
+      containers:
+        - name: hotel-rabbitmq
+          image: {{ .Values.rabbitmq.image }}
+          ports:
+            - containerPort: {{ .Values.rabbitmq.port }}
+            - containerPort: {{ .Values.rabbitmq.managementPort }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hotel-rabbitmq
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    app: hotel-rabbitmq
+  ports:
+    - name: amqp
+      port: 5672
+    - name: management
+      port: 15672
