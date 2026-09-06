@@ -15,33 +15,40 @@ services:
     port: 8081
     hasDatabase: true
     hasRabbitMQ: false
+    replicas: 2
   booking-service:
     image: abubakarmeigag/hotel-booking-service:latest
     port: 8082
     hasDatabase: true
     hasRabbitMQ: true
+    replicas: 2
   guest-service:
     image: abubakarmeigag/hotel-guest-service:latest
     port: 8083
     hasDatabase: true
     hasRabbitMQ: false
+    replicas: 2
   housekeeping-service:
     image: abubakarmeigag/hotel-housekeeping-service:latest
     port: 8084
     hasDatabase: true
     hasRabbitMQ: true
+    replicas: 2
   billing-service:
     image: abubakarmeigag/hotel-billing-service:latest
     port: 8085
     hasDatabase: true
     hasRabbitMQ: true
+    replicas: 2
   notification-service:
     image: abubakarmeigag/hotel-notification-service:latest
     port: 8086
     hasDatabase: false
     hasRabbitMQ: true
+    replicas: 2
   api-gateway:
     image: abubakarmeigag/hotel-api-gateway:2cdde3e
     port: 8080
     hasDatabase: false
     hasRabbitMQ: false
+    replicas: 2
