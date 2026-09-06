@@ -41,7 +41,7 @@ services:
     hasDatabase: false
     hasRabbitMQ: true
   api-gateway:
-    image: abubakarmeigag/hotel-api-gateway:latest
+    image: abubakarmeigag/hotel-api-gateway:2cdde3e
     port: 8080
     hasDatabase: false
     hasRabbitMQ: false
