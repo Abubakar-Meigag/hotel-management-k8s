@@ -13,6 +13,7 @@ spec:
       labels:
         app: booking-service
     spec:
+      serviceAccountName: booking-service
       containers:
         - name: booking-service
           image: abubakarmeigag/hotel-booking-service:latest
