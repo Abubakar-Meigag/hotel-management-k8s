@@ -26,12 +26,12 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: hotel-secrets
-                  key: SPRING_DATASOURCE_USERNAME
+                  key: postgres-username
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: hotel-secrets
-                  key: SPRING_DATASOURCE_PASSWORD
+                  key: postgres-password
 ---
 apiVersion: v1
 kind: Service
