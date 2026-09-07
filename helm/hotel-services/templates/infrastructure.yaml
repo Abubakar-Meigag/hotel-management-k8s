@@ -23,7 +23,10 @@ spec:
             - name: POSTGRES_DB
               value: hoteldb
             - name: POSTGRES_USER
-              value: hoteldb
+              valueFrom:
+                secretKeyRef:
+                  name: hotel-secrets
+                  key: SPRING_DATASOURCE_USERNAME
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
