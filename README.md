@@ -74,6 +74,16 @@ hotel-management-k8s/
 └── argocd/
     └── application.yaml
 ```
+--- 
+
+## Screenshots
+
+### Cluster overview
+![kubectl output showing the argocd, istio-system and hotel namespaces with all pods running](./docs/screenshots/cluster-overview.png)
+
+### Hotel services and deployments
+![kubectl output showing the hotel namespace with nine running pods, their services and ports, and deployments all ready](./docs/screenshots/kubectl%20get%20pods,svc,deploy%20-n%20hotel.png)
+
 
 ## Phase 1 — Kubernetes
 
